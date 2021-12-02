@@ -1,1 +1,4 @@
-* Advent of Code 2021
+* aoc-2021
+  My solutions to Advent of Code 2021 in Go.
+  I don't know go past the basics so I'm using this to learn a bit.
+  
