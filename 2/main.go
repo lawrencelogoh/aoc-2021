@@ -9,24 +9,12 @@ import (
 
 var x int
 var y int
+var aim int
 
 func main() {
-	input, _ := ioutil.ReadFile("input.txt")
-
-	list := strings.Split(string(input), "\n")
-	for i := 0; i < len(list)-1; i++ {
-		direction, depth := parse(list[i])
-		if direction == "forward" {
-			x = x + depth
-
-		} else if direction == "down" {
-			y = y + depth
-		} else {
-			y = y - depth
-		}
-
-	}
-	fmt.Println(x * y)
+	partOne()
+	x, y = 0, 0
+	partTwo()
 
 }
 
@@ -38,4 +26,45 @@ func parse(s string) (string, int) {
 		panic(err)
 	}
 	return a, b
+}
+
+func partOne() {
+	fmt.Println("Part One")
+	input, _ := ioutil.ReadFile("input.txt")
+	list := strings.Split(string(input), "\n")
+	for i := 0; i < len(list)-1; i++ {
+		direction, degree := parse(list[i])
+		if direction == "forward" {
+			x = x + degree
+
+		} else if direction == "down" {
+			y = y + degree
+		} else {
+			y = y - degree
+		}
+
+	}
+	fmt.Println(x * y)
+
+}
+
+func partTwo() {
+	fmt.Println("Part Two")
+	input, _ := ioutil.ReadFile("input.txt")
+	list := strings.Split(string(input), "\n")
+	for i := 0; i < len(list)-1; i++ {
+		direction, degree := parse(list[i])
+		if direction == "forward" {
+			x = x + degree
+			y = y + degree*aim
+
+		} else if direction == "down" {
+			aim = aim + degree
+		} else {
+			aim = aim - degree
+		}
+
+	}
+	fmt.Println(x * y)
+
 }
