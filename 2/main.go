@@ -18,7 +18,7 @@ func main() {
 
 }
 
-func parse(s string) (string, int) {
+func snc(s string) (string, int) {
 	x := strings.Split(s, " ")
 	a := x[0]
 	b, err := strconv.Atoi(x[1])
@@ -33,7 +33,7 @@ func partOne() {
 	input, _ := ioutil.ReadFile("input.txt")
 	list := strings.Split(string(input), "\n")
 	for i := 0; i < len(list)-1; i++ {
-		direction, degree := parse(list[i])
+		direction, degree := snc(list[i])
 		if direction == "forward" {
 			x = x + degree
 
@@ -53,7 +53,7 @@ func partTwo() {
 	input, _ := ioutil.ReadFile("input.txt")
 	list := strings.Split(string(input), "\n")
 	for i := 0; i < len(list)-1; i++ {
-		direction, degree := parse(list[i])
+		direction, degree := snc(list[i])
 		if direction == "forward" {
 			x = x + degree
 			y = y + degree*aim
